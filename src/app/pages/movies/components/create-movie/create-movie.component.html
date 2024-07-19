@@ -1,1 +1,88 @@
-<p>create-movie works!</p>
+<div class="create-user-container">
+    <div class="header">
+        <div class="flex-between">
+            <i class="pointer mr-5" nz-icon nzType="arrow-left" (click)="onBack()"></i>
+            <h2 class="m-0">Create Movie</h2>
+        </div>
+ 
+      <button nz-button nzType="primary" (click)="onSubmit()">Save</button>
+    </div>
+    <nz-divider class="m-0"></nz-divider>
+    <form [formGroup]="createMovieForm" (ngSubmit)="onSubmit()">
+
+        <nz-row [nzGutter]="16">
+
+          <nz-col nzSpan="8">
+            <nz-form-item class="d-contents">
+              <nz-form-label nzFor="title" nzRequired="true">Title</nz-form-label>
+              <nz-form-control>
+                <input nz-input formControlName="title" id="title" placeholder="Enter title" class="input-rounded" />
+                <div *ngIf="createMovieForm.controls['title'].invalid && createMovieForm.controls['title'].touched" class="error">
+                  Title is required
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+
+          <nz-col nzSpan="8">
+            <nz-form-item class="d-contents">
+              <nz-form-label nzFor="title" nzRequired="true">Categories</nz-form-label>
+              <nz-form-control>
+                <nz-select formControlName="category_id" id="category_id" placeholder="Select category" class="input-rounded">
+                  <nz-option *ngFor="let category of categoriesList" [nzValue]="category.id" [nzLabel]="category?.category_name"></nz-option>
+                </nz-select>
+                <div *ngIf="createMovieForm.controls['category_id'].invalid && createMovieForm.controls['category_id'].touched" class="error">
+                  Category is required
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+
+        </nz-row>
+
+        <nz-row [nzGutter]="16">
+          <nz-col nzSpan="8">
+            <nz-form-item class="d-contents">
+              <nz-form-label nzFor="title" nzRequired="true">Director</nz-form-label>
+              <nz-form-control>
+                <input nz-input formControlName="director" id="director" placeholder="Enter director" class="input-rounded" />
+                <div *ngIf="createMovieForm.controls['director'].invalid && createMovieForm.controls['director'].touched" class="error">
+                  Director is required
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+
+          <nz-col nzSpan="8">
+            <nz-form-item  class="d-contents">
+              <nz-form-label  nzFor="title" nzRequired="true">Due Date</nz-form-label>
+              <nz-form-control>
+                <nz-date-picker id="release_date" formControlName="release_date"></nz-date-picker>
+                <div *ngIf="createMovieForm.controls['release_date'].invalid && createMovieForm.controls['release_date'].touched" class="error">
+                  Release Date is required
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+          
+         
+
+          
+
+        </nz-row>
+        <nz-row [nzGutter]="8">
+          <nz-col nzSpan="8">
+            <nz-form-item class="d-contents">
+              <nz-form-label nzFor="description" nzRequired="true">Short Description</nz-form-label>
+              <nz-form-control>
+                <input nz-input formControlName="description" id="description" placeholder="Enter description" class="input-rounded" />
+                <div *ngIf="createMovieForm.controls['description'].invalid && createMovieForm.controls['description'].touched" class="error">
+                  Description is required
+                </div>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+      </form>
+  </div>
+  

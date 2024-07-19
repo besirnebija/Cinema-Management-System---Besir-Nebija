@@ -1,1 +1,26 @@
-<p>edit-category works!</p>
+<div class="edit-category-container">
+    <div class="header">
+      <div class="flex-between">
+        <i class="pointer mr-5" nz-icon nzType="arrow-left" (click)="onBack()"></i>
+        <h2 class="m-0">Edit Category</h2>
+      </div>
+      <button nz-button nzType="primary" (click)="onSubmit()">Save</button>
+    </div>
+    <nz-divider class="m-0"></nz-divider>
+    <form [formGroup]="editCategoryForm" (ngSubmit)="onSubmit()">
+      <nz-row [nzGutter]="16">
+        <nz-col nzSpan="12">
+          <nz-form-item class="d-contents">
+            <nz-form-label nzFor="category_name" nzRequired="true">Category name</nz-form-label>
+            <nz-form-control>
+              <input nz-input formControlName="category_name" id="category_name" placeholder="Enter Category name" class="input-rounded" />
+              <div *ngIf="editCategoryForm.controls['category_name'].invalid && editCategoryForm.controls['category_name'].touched" class="error">
+                Category name is required
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+      </nz-row>
+    </form>
+  </div>
+  

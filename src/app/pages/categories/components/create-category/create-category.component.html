@@ -1,1 +1,31 @@
-<p>create-category works!</p>
+<div class="create-user-container">
+    <div class="header">
+        <div class="flex-between">
+            <i class="pointer mr-5" nz-icon nzType="arrow-left" (click)="onBack()"></i>
+            <h2 class="m-0">Create Category</h2>
+        </div>
+ 
+      <button nz-button nzType="primary" (click)="onSubmit()">Save</button>
+    </div>
+    <nz-divider class="m-0"></nz-divider>
+    <form [formGroup]="createCategoriesForm" (ngSubmit)="onSubmit()">
+        <nz-row [nzGutter]="16">
+        
+          <nz-col nzSpan="5">
+            <nz-form-item class="d-contents">
+              <nz-form-label nzFor="category_name" nzRequired="true">Category name</nz-form-label>
+              <nz-form-control>
+                <input nz-input formControlName="category_name" id="category_name" placeholder="Add Category" class="input-rounded" />
+                <div *ngIf="createCategoriesForm.controls['category_name'].invalid && createCategoriesForm.controls['category_name'].touched" class="error">
+                  Enter Category
+                </div>
+              </nz-form-control>
+              
+            </nz-form-item>
+          </nz-col>
+
+          
+        </nz-row>
+      </form>
+  </div>
+  

@@ -1,1 +1,34 @@
-<p>all-categories works!</p>
+<div class="main">
+    <div class="header">
+        <h2>All Categories</h2>`
+        <div class="actions">
+          <button nz-button nzType="primary" (click)="navigateToCreateCategory()" >Create Category</button>
+        </div>
+      </div>
+      
+      <nz-table #basicTable [nzData]="filteredCategoriesList" [nzPageSize]="5">
+        <thead>
+          <tr>
+            <th>Category Name</th>
+            <th class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of basicTable.data">
+            <td >{{ category?.category_name }}</td>
+            <td class="icons text-right">
+                <span class="green pointer p-5" [routerLink]="'/categories/category-details/' + category.id" [queryParams]="{ categoryId: category.id }" nz-icon nzType="eye" nzTheme="outline"></span>
+                <span class="green pointer p-5" [routerLink]="'/categories/edit-category/' + category.id" [queryParams]="{ categoryId: category.id }" nz-icon nzType="edit" nzTheme="outline"></span>
+                <span class="red pointer p-5" nz-icon nzType="delete" nzTheme="outline" (click)="deleteCategory(category)"></span>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+</div>
+  
+<nz-modal [(nzVisible)]="deleteCategoryModal" nzTitle="Confirm Delete" (nzOnCancel)="deleteCategoryModal" nzOkDanger="true" nzOkText="Delete" (nzOnOk)="deleteCategoryFromTable(clickedCategoryData.id)">
+    <ng-container *nzModalContent>
+        <p>Are you sure you want to delete <b>{{ clickedCategoryData?.title}}</b> ?</p>
+    </ng-container>
+</nz-modal>
+  

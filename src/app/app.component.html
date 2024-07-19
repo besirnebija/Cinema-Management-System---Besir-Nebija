@@ -8,25 +8,24 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Cinema Management</h1>
+        <h1>Ant Design Of Angular</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <span nz-icon nzType="user"></span>
-            <a>Categories</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <span nz-icon nzType="video-camera" nzTheme="outline"></span>
-            <a>Movies</a>
-          </li>
-        </ul>
+      <li nz-menu-item routerLink="/categories" routerLinkActive="active"
+       nzMatchRouter    [routerLinkActiveOptions]="{ exact: false }">
+        <span nz-icon nzType="user"></span>
+        <span>Categories</span>
       </li>
+      <li nz-menu-item routerLink="/movies" routerLinkActive="active"
+      nzMatchRouter    [routerLinkActiveOptions]="{ exact: false }">
+      <span nz-icon nzType="check-square" nzTheme="outline"></span>
+       <span>Movies</span>
+     </li>
+     
     </ul>
   </nz-sider>
-  <nz-layout>
+  <nz-layout> 
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">

@@ -1,0 +1,77 @@
+
+
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;margin-bottom: 5px;
+  }
+ 
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pointer  {
+    cursor: pointer;
+  }
+  .mr-5{
+    margin-right: 5px;
+  }
+  .m-0{
+    margin: 0!important;
+  }
+  button{
+    border-radius: 8px; 
+    background-color: #01152a;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  input{
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    height: 40px;
+    border-radius: 8px;
+    padding: 5px;
+  }
+
+  .d-contents{
+    display: contents;
+  }
+  nz-form-label{
+    margin: 10px 0 0 0 ;
+    font-weight: bolder;
+  }
+  
+  ::ng-deep nz-select-top-control.ant-select-selector{
+    border: 1px solid #f0f0f0!important;
+    border-radius: 8px!important;
+    height: 40px!important;
+  }
+
+  nz-date-picker{
+    width: 100%;
+    border-radius: 8px;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+  }
+
+  textarea{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+}

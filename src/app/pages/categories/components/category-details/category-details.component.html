@@ -1,1 +1,16 @@
-<p>category-details works!</p>
+<div class="category-details-container">
+    <div class="header">
+        <div class="flex-between">
+          <i class="pointer mr-5" nz-icon nzType="arrow-left" (click)="onBack()"></i>
+          <h2 class="m-0">Edit Category</h2>
+        </div>
+        <button nz-button nzType="primary" [routerLink]="'/categories/edit-category/' + category.id" [queryParams]="{ categoryId: category.id }" >Update</button>
+      </div>
+    <nz-divider class="m-0"></nz-divider>
+    <div *ngIf="category">
+      <nz-descriptions class="mt-10">
+        <nz-descriptions-item nzTitle="Category Name">{{ category.category_name }}</nz-descriptions-item>
+      </nz-descriptions>
+    </div>
+  </div>
+  
