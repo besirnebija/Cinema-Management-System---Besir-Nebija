@@ -23,6 +23,7 @@ export class CategoriesService {
 
   addCategory(category: any) {
     const categories = this.getCategories();
+    console.log(categories)
     const isDuplicate = categories.some(existingCategory => 
       existingCategory.category_name === category.category_name &&
       existingCategory.category_id === category.category_id

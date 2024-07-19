@@ -20,7 +20,7 @@ export class AllMoviesComponent implements OnInit {
 
 
   constructor( 
-    private movieService: MoviesService, 
+    private moviesService: MoviesService, 
     private router: Router, 
     private message: NzMessageService) { }
 
@@ -37,7 +37,7 @@ export class AllMoviesComponent implements OnInit {
     });
   }
   fetchMovies() {
-    this.movieList = this.movieService.getMovies();
+    this.movieList = this.moviesService.getMovies();
     this.filteredMovieList = this.movieList;
   }
 
@@ -47,7 +47,7 @@ export class AllMoviesComponent implements OnInit {
   }
 
   deleteMovieFromTable(movieId: number) {
-    this.movieService.deleteMovie(movieId);
+    this.moviesService.deleteMovie(movieId);
     this.fetchMovies();
     this.deleteMovieModal = false;
     this.message.success('Movie deleted successfully');
@@ -67,9 +67,7 @@ export class AllMoviesComponent implements OnInit {
       return [this.movieList];
     }
     return [this.movieList.filter(movie =>
-      (movie.title && movie.title.toLowerCase().includes(term.toLowerCase())) ||
-      (movie.description && movie.description.toLowerCase().includes(term.toLowerCase())) ||
-      (movie.release_date && movie.release_date.toLowerCase().includes(term.toLowerCase()))
+      (movie.title && movie.title.toLowerCase().includes(term.toLowerCase())) 
     )];
   }
   

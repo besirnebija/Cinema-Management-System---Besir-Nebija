@@ -2,52 +2,10 @@
   <div class="header">
       <h2>All Movies</h2>
       <div class="actions">
-        <input nz-input placeholder="Search tasks" [formControl]="searchTerm"/>
+        <input nz-input placeholder="Search movies by category" [formControl]="searchTerm"/>
         <button nz-button nzType="primary" (click)="navigateToCreateMovie()">Create Movie</button>
       </div>
     </div>
-
-  
-    
-    <nz-table #basicTable [nzData]="filteredMovieList" [nzPageSize]="5">
-    
-    
-      <nz-row [nzGutter]="16">
-        <nz-col nzSpan="8">
-          <nz-card style="width:300px;" nzTitle="Movie title" [nzExtra]="extraTemplate">
-            <p>Movie Director</p>
-            <p>Movie Release Date</p>
-            <p>Movie Director</p>
-          </nz-card>
-          <ng-template #extraTemplate>
-            <a>More</a>
-          </ng-template>
-        </nz-col>
-       
-        
-        </nz-row>
-    
-      <!-- <thead>
-        <tr>
-          <th nzWidth="20%">Title</th>
-          <th nzWidth="30%">Description</th>
-          <th nzWidth="30%">Due date</th>
-          <th nzWidth="30%" class="text-right">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let movie of basicTable.data">
-          <td>{{ movie?.title }}</td>
-          <td>{{ movie?.description}}</td>
-          <td>{{movie?.release_date | date:'shortDate'}}</td>
-          <td class="icons text-right">
-              <span class="green pointer p-5" [routerLink]="'/movies/movie-details/' + movie.id" [queryParams]="{ movieId: movie.id }" nz-icon nzType="eye" nzTheme="outline"></span>
-              <span class="green pointer p-5" [routerLink]="'/movies/edit-movie/' + movie.id" [queryParams]="{ movieId: movie.id }" nz-icon nzType="edit" nzTheme="outline"></span>
-              <span class="red pointer p-5" nz-icon nzType="delete" nzTheme="outline" (click)="deleteMovie(movie)"></span>
-          </td>
-        </tr>
-      </tbody> -->
-    </nz-table>
 </div>
 
 <nz-modal [(nzVisible)]="deleteMovieModal" nzTitle="Confirm Delete" (nzOnCancel)="closeDeleteMovieModal()" nzOkDanger="true" nzOkText="Delete" (nzOnOk)="deleteMovieFromTable(clickedMovieData.id)">

@@ -31,9 +31,9 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
   imports: [
     CommonModule,
     MoviesRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     NzTableModule,
+    FormsModule,
     NzModalModule,
     NzMessageModule,
     NzIconModule,

@@ -17,27 +17,27 @@ export class MoviesService {
   }
 
   getMovies(): any[] {
-    const users = localStorage.getItem(this.localStorageKey);
-    return users ? JSON.parse(users) : [];
+    const movies = localStorage.getItem(this.localStorageKey);
+    return movies ? JSON.parse(movies) : [];
   }
 
   addMovie(movie: any) {
     const movies = this.getMovies();
+    console.log(movies)
     const isDuplicate = movies.some(existingMovie => 
       existingMovie.title === movie.title &&
-      existingMovie.category === movie.category &&
       existingMovie.director === movie.director &&
-      existingMovie.category_id === movie.category_id &&
-      existingMovie.release_date === movie.release_date
+      existingMovie.release_date === movie.release_date &&
+      existingMovie.category_id === movie.category_id
     );
   
     if (isDuplicate) {
-      throw new Error('A movie with these details already exists.');
+      throw new Error('A task with these details already exists.');
     }
 
     movie.id = new Date().getTime();
     movies.push(movie);
-    localStorage.setItem(this.localStorageKey, JSON.stringify(movie));
+    localStorage.setItem(this.localStorageKey, JSON.stringify(movies));
   }
 
   deleteMovie(movieId: number) {
@@ -46,17 +46,17 @@ export class MoviesService {
     localStorage.setItem(this.localStorageKey, JSON.stringify(movies));
   }
 
-  getUserById(movieId: number): any {
-    const users = this.getMovies();
-    return users.find(movie => movie.id == movieId);
+  getMoviesById(movieId: number): any {
+    const movies = this.getMovies();
+    return movies.find(movie => movie.id == movieId);
   }
   
 
-  updateUser(updateMovie: any) {
+  updateMovie(updatedMovie: any) {
     let movies = this.getMovies();
-    const index = movies.findIndex(movie => movie.id === updateMovie.id);
+    const index = movies.findIndex(movie => movie.id === updatedMovie.id);
     if (index !== -1) {
-      movies[index] = updateMovie;
+      movies[index] = updatedMovie;
       localStorage.setItem(this.localStorageKey, JSON.stringify(movies));
     }
   }
