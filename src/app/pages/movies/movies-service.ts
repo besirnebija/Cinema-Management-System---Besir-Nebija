@@ -23,12 +23,11 @@ export class MoviesService {
 
   addMovie(movie: any) {
     const movies = this.getMovies();
-    console.log(movies)
     const isDuplicate = movies.some(existingMovie => 
       existingMovie.title === movie.title &&
       existingMovie.director === movie.director &&
       existingMovie.release_date === movie.release_date &&
-      existingMovie.category_id === movie.category_id
+      existingMovie.category_name === movie.category_name
     );
   
     if (isDuplicate) {

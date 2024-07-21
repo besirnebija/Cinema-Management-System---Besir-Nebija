@@ -4,12 +4,10 @@
             <i class="pointer mr-5" nz-icon nzType="arrow-left" (click)="onBack()"></i>
             <h2 class="m-0">Create Movie</h2>
         </div>
- 
       <button nz-button nzType="primary" (click)="onSubmit()">Save</button>
     </div>
     <nz-divider class="m-0"></nz-divider>
     <form [formGroup]="createMovieForm" (ngSubmit)="onSubmit()">
-
         <nz-row [nzGutter]="16">
           <nz-col nzSpan="8">
             <nz-form-item class="d-contents">
@@ -22,23 +20,20 @@
               </nz-form-control>
             </nz-form-item>
           </nz-col>
-      
-
           <nz-col nzSpan="8">
             <nz-form-item class="d-contents">
               <nz-form-label nzFor="title" nzRequired="true">Categories</nz-form-label>
               <nz-form-control>
-                <nz-select formControlName="category_id" id="category_id" placeholder="Select category" class="input-rounded">
-                  <nz-option *ngFor="let category of categoriesList" [nzValue]="category.id" [nzLabel]="category?.category_name"></nz-option>
+                <nz-select formControlName="category_name" id="category_name" placeholder="Select category" class="input-rounded">
+                  <nz-option *ngFor="let category of categoriesList" [nzValue]="category.category_name" [nzLabel]="category?.category_name"></nz-option>
                 </nz-select>
-                <div *ngIf="createMovieForm.controls['category_id'].invalid && createMovieForm.controls['category_id'].touched" class="error">
+                <div *ngIf="createMovieForm.controls['category_name'].invalid && createMovieForm.controls['category_name'].touched" class="error">
                   Category is required
                 </div>
               </nz-form-control>
             </nz-form-item>
           </nz-col>
         </nz-row>
-
         <nz-row [nzGutter]="16">
           <nz-col nzSpan="8">
             <nz-form-item class="d-contents">
@@ -51,7 +46,6 @@
               </nz-form-control>
             </nz-form-item>
           </nz-col>
-
           <nz-col nzSpan="8">
             <nz-form-item  class="d-contents">
               <nz-form-label  nzFor="title" nzRequired="true">Due Date</nz-form-label>
@@ -63,11 +57,6 @@
               </nz-form-control>
             </nz-form-item>
           </nz-col>
-          
-         
-
-          
-
         </nz-row>
         <nz-row [nzGutter]="8">
           <nz-col nzSpan="8">
@@ -84,4 +73,3 @@
         </nz-row>
       </form>
   </div>
-  
