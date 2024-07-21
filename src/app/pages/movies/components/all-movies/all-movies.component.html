@@ -6,8 +6,48 @@
         <button nz-button nzType="primary" (click)="navigateToCreateMovie()">Create Movie</button>
       </div>
     </div>
-</div>
+    </div>
 
+    <nz-divider nzOrientation="left"></nz-divider>
+
+    <div nz-row  nz-row  [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+      <div *ngFor="let movie of filteredMovieList" nz-col class="gutter-row" [nzSpan]="8">
+        <div class="card" nz-col class="gutter-row" class="inner-box">
+          <nz-card  style="width:300px;"  [nzBordered]="true" nzTitle="Title: {{ movie.title }}" [nzExtra]="extraTemplate">
+            <p>Director: {{ movie.director }}</p>
+            <p>Release date: {{ movie.release_date | date:'shortDate'}}</p>
+          </nz-card>
+          <ng-template #extraTemplate>
+            <span class="green pointer p-5" [routerLink]="'/movies/movie-details/' + movie.id" [queryParams]="{ movieId: movie.id }" nz-icon nzType="eye" nzTheme="outline"></span>
+            <span class="green pointer p-5" [routerLink]="'/movies/edit-movie/' + movie.id" [queryParams]="{ movieId: movie.id }" nz-icon nzType="edit" nzTheme="outline"></span>
+            <span class="red pointer p-5" nz-icon nzType="delete" nzTheme="outline" (click)="deleteMovie(movie)"></span>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div nz-row  [nzGutter]="[16, 24]">
+      <div class="card"*ngFor="let movie of filteredMovieList" nz-col class="gutter-row" nz-row nzJustify="space-between"  [nzSpan]="8"><div class="inner-box">
+        <nz-card  style="width:300px;"  [nzBordered]="false" nzTitle="Title: {{ movie.title }}" [nzExtra]="extraTemplate">
+          <p>Director: {{ movie.director }}</p>
+          <p>Release date: {{ movie.release_date | date:'shortDate'}}</p>
+        </nz-card>
+        <ng-template #extraTemplate>
+          <span class="green pointer p-5" [routerLink]="'/movies/movie-details/' + movie.id" [queryParams]="{ movieId: movie.id }" nz-icon nzType="eye" nzTheme="outline"></span>
+          <span class="green pointer p-5" [routerLink]="'/movies/edit-movie/' + movie.id" [queryParams]="{ movieId: movie.id }" nz-icon nzType="edit" nzTheme="outline"></span>
+          <span class="red pointer p-5" nz-icon nzType="delete" nzTheme="outline" (click)="deleteMovie(movie)"></span>
+        </ng-template>
+      </div>
+      </div>
+    </div> -->
+
+    <!-- <div *ngFor="let card of cards">
+      <nz-card [nzTitle]="card.title">
+        <p>{{ card.content }}</p>
+      </nz-card>
+    </div> -->
+    
+      
 <nz-modal [(nzVisible)]="deleteMovieModal" nzTitle="Confirm Delete" (nzOnCancel)="closeDeleteMovieModal()" nzOkDanger="true" nzOkText="Delete" (nzOnOk)="deleteMovieFromTable(clickedMovieData.id)">
   <ng-container *nzModalContent>
       <p>Are you sure you want to delete <b>{{ clickedMovieData?.title}}</b> ?</p>

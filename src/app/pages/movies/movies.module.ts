@@ -17,7 +17,8 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzDividerModule,
     NzDescriptionsModule,
     NzCardModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    NzPaginationModule,
+    NzGridModule
   ]
 })
 export class MoviesModule { }

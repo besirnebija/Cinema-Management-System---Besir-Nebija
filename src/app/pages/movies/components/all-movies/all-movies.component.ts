@@ -5,6 +5,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-all-movies',
   templateUrl: './all-movies.component.html',
