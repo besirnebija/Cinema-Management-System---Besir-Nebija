@@ -68,6 +68,7 @@ export class AllMoviesComponent implements OnInit {
       return [this.movieList];
     }
     return [this.movieList.filter(movie =>
+      (movie.category_name && movie.category_name.toLowerCase().includes(term.toLowerCase())) || 
       (movie.title && movie.title.toLowerCase().includes(term.toLowerCase())) 
     )];
   }
